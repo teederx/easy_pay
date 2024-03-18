@@ -1,3 +1,4 @@
+import 'package:easy_pay/pages/home.dart';
 import 'package:easy_pay/widgets/custom_outlined_input_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -26,6 +27,7 @@ class _LoginPageState extends State<LoginPage> {
     _formKey.currentState!.save();
     print(_enteredEmail);
     print(_enteredPassword);
+    Navigator.pushReplacementNamed(context, Home.routeName);
   }
 
   @override
@@ -108,7 +110,8 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
           TextButton(
-            onPressed: () {},
+            onPressed: () =>
+                Navigator.pushReplacementNamed(context, Home.routeName),
             style: TextButton.styleFrom(
               padding: const EdgeInsets.symmetric(vertical: 15),
               shape: RoundedRectangleBorder(
