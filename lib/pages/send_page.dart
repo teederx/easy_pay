@@ -46,7 +46,8 @@ class _SendState extends State<Send> {
       _controller.text =
           value; // 6) set our controller text to the gotten value
       _controller.selection = TextSelection.fromPosition(
-          const TextPosition(offset: 1)); // 7) since this is the first input
+        const TextPosition(offset: 1),
+      ); // 7) since this is the first input
       // set position of cursor to 1, so the cursor is placed at the end
     }
   }
@@ -253,7 +254,13 @@ class _SendState extends State<Send> {
                             padding: const EdgeInsets.only(bottom: 10.0),
                             child: ElevatedButton(
                               onPressed: () => Navigator.pushNamed(
-                                  context, TransactionDetails.routeName),
+                                context,
+                                TransactionDetails.routeName,
+                                arguments: {
+                                  'beneficiary': beneficiary,
+                                  'amount': _controller.value.text,
+                                },
+                              ),
                               style: ElevatedButton.styleFrom(
                                 padding:
                                     const EdgeInsets.symmetric(vertical: 15),
@@ -286,8 +293,3 @@ class _SendState extends State<Send> {
     );
   }
 }
-
-
-
-
-

@@ -85,7 +85,10 @@ class Onboarding extends StatelessWidget {
                               padding: const EdgeInsets.only(top: 20),
                               child: Image.asset('assets/images/Logo.png'),
                             ),
-                            Image.asset('assets/images/Cards.png')
+                            Image.asset(
+                              'assets/images/Cards.png',
+                              scale: 4,
+                            ),
                           ],
                         ),
                       ),

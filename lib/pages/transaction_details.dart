@@ -1,3 +1,4 @@
+import 'package:easy_pay/data/beneficiary.dart';
 import 'package:easy_pay/pages/home.dart';
 import 'package:flutter/material.dart';
 
@@ -84,6 +85,10 @@ class LargeInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final data =
+        ModalRoute.of(context)!.settings.arguments as Map;
+    final beneficiary = data['beneficiary'] as Beneficiary;
+    final amount = data['amount'] as String;
     return Expanded(
       child: Container(
         color: const Color.fromRGBO(247, 249, 251, 0.49),
@@ -113,9 +118,9 @@ class LargeInfo extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
-                        'M. Pordabagh',
-                        style: TextStyle(
+                      Text(
+                        '${beneficiary.firstName[0]}. ${beneficiary.lastName}',
+                        style: const TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w500,
                         ),
@@ -282,9 +287,9 @@ class LargeInfo extends StatelessWidget {
                           color: Theme.of(context).colorScheme.primary,
                         ),
                       ),
-                      const Text(
-                        '3,000.00',
-                        style: TextStyle(
+                      Text(
+                        amount,
+                        style: const TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w500,
                         ),
